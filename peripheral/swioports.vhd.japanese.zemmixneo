@@ -965,9 +965,9 @@ begin
                     -- in assignment: 'Port $4C ID212 [VDP ID selector]' [Reserved to IPL-ROM]' (write only) (0-1=MSX1 or MSX2 BIOS, 2-255=any other BIOS)
                     if( req = '1' and wrt = '1' and (adr(3 downto 0) = "1100")  and (io40_n = "00101011") and ff_ldbios_n = '0' )then
                         if( dbo(7 downto 1) = "0000000" )then
-                            VDP_ID          :=  "00000";                        -- Set VDP ID = 0 (V9938)
+                            VDP_ID          :=  "00" & dbo(0);                  -- Set VDP ID = 0 (V9938)
                         else
-                            VDP_ID          :=  "00010";                        -- Set VDP ID = 2 (V9958) (default)
+                            VDP_ID          :=  "01" & dbo(0);                  -- Set VDP ID = 2 (V9958) (default)
                         end if;
                     end if;
                     -- in assignment: 'Port $4D ID212 [VRAM Slot IDs]' (read/write_n)
