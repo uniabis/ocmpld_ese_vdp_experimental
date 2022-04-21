@@ -1674,9 +1674,9 @@ begin
                 -- TODO: implementation is unfinished
                 if( hsyncIntAck /= hsyncIntReq ) then
                   hsyncIntAck <= not hsyncIntAck;
-                  dbi <= "0000" & VDP_ID & '1';
+                  dbi <= "00000" & VDP_ID & '1';
                 else
-                  dbi <= "0000" & VDP_ID & '0';
+                  dbi <= "00000" & VDP_ID & '0';
                 end if;
               when "0010" => -- Read S#2
 --                dbi <= '1' & not iVideoVS_n & not iVideoHS_n & VdpCmdBD & "11" & field & '0';

@@ -301,7 +301,7 @@ BEGIN
                 REG_R1_DISP_ON      <= FF_R1_DISP_ON;
                 REG_R0_DISP_MODE    <= FF_R0_DISP_MODE;
                 REG_R1_DISP_MODE    <= FF_R1_DISP_MODE;
-                IF( VDP_ID(2 DOWNTO 1) /= "00" )THEN
+                IF( VDP_ID(1) /= '0' )THEN
                     REG_R25_SP2         <= FF_R25_SP2;
                     REG_R26_H_SCROLL    <= FF_R26_H_SCROLL;
                 END IF;
@@ -398,7 +398,7 @@ BEGIN
                     WHEN "0000" => -- READ S#0
                         DBI <= (NOT REQ_VSYNC_INT_N) & (VDPS0SPOVERMAPPED AND REQ_VSYNC_INT_N) & VDPS0SPCOLLISIONINCIDENCE & VDPS0SPOVERMAPPEDNUM;
                     WHEN "0001" => -- READ S#1
-                        DBI <= "0000" & VDP_ID(2 DOWNTO 1) & "0"  & (NOT REQ_HSYNC_INT_N);
+                        DBI <= "00000" & VDP_ID(1) & "0"  & (NOT REQ_HSYNC_INT_N);
                     WHEN "0010" => -- READ S#2
                         DBI <= VDPCMDTR & VD & HD & VDPCMDBD & "11" & FIELD & VDPCMDCE;
                     WHEN "0011" => -- READ S#3
@@ -690,7 +690,7 @@ BEGIN
                         WHEN "10111" =>     -- #23
                             REG_R23_VSTART_LINE     <= VDPP1DATA;
                         WHEN "11001" =>     -- #25
-                            IF( VDP_ID(2 DOWNTO 1) /= "00" )THEN
+                            IF( VDP_ID(1) /= '0' )THEN
                                 REG_R25_CMD <= VDPP1DATA(6);
                                 REG_R25_YAE <= VDPP1DATA(4);
                                 REG_R25_YJK <= VDPP1DATA(3);
@@ -698,11 +698,11 @@ BEGIN
                                 FF_R25_SP2 <= VDPP1DATA(0);
                             END IF;
                         WHEN "11010" =>     -- #26
-                            IF( VDP_ID(2 DOWNTO 1) /= "00" )THEN
+                            IF( VDP_ID(1) /= '0' )THEN
                                 FF_R26_H_SCROLL <= VDPP1DATA( 5 DOWNTO 0 );
                             END IF;
                         WHEN "11011" =>     -- #27
-                            IF( VDP_ID(2 DOWNTO 1) /= "00" )THEN
+                            IF( VDP_ID(1) /= '0' )THEN
                                 REG_R27_H_SCROLL <= VDPP1DATA( 2 DOWNTO 0 );
                             END IF;
                         WHEN OTHERS => NULL;

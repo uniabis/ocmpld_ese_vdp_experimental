@@ -82,8 +82,8 @@ LIBRARY IEEE;
 PACKAGE VDP_PACKAGE IS
 
     -- VDP ID
---  SHARED VARIABLE VDP_ID : STD_LOGIC_VECTOR(  2 DOWNTO 0 ) := "00" & "0";  -- V9938("00") & Disable palette extension("0")
-    SHARED VARIABLE VDP_ID : STD_LOGIC_VECTOR(  2 DOWNTO 0 ) := "01" & "0";  -- V9958("01") & Disable palette extension("0")
+--  SHARED VARIABLE VDP_ID : STD_LOGIC_VECTOR(  1 DOWNTO 0 ) := "0" & "0";  -- V9938("0") & Disable palette extension("0")
+    SHARED VARIABLE VDP_ID : STD_LOGIC_VECTOR(  1 DOWNTO 0 ) := "1" & "0";  -- V9958("1") & Disable palette extension("0")
 
     -- display start position ( when adjust=(0,0) )
     -- [from V9938 Technical Data Book]

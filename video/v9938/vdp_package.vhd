@@ -82,9 +82,9 @@ use ieee.std_logic_unsigned.all;
 package vdp_package is
 
   -- VDP ID
-  constant VDP_ID : std_logic_vector(2 downto 0) := "000";  -- V9938
---  constant VDP_ID : std_logic_vector(2 downto 0) := "001";  -- unknown
---  constant VDP_ID : std_logic_vector(2 downto 0) := "010";  -- V9958
+  constant VDP_ID : std_logic_vector(1 downto 0) := "00";  -- V9938
+--  constant VDP_ID : std_logic_vector(1 downto 0) := "01";  -- unknown
+--  constant VDP_ID : std_logic_vector(1 downto 0) := "10";  -- V9958
 
   -- switch the default display mode (NTSC or VGA)
 --  constant DISPLAY_MODE : std_logic := '0';  -- NTSC
